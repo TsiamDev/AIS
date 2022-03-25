@@ -18,14 +18,15 @@
 				left: 25%;
 				margin: 0;
 				max-width-0.75;
-				background-color: black;
-				color: white;
+				background-color: #e6e7f2;
+				color: black;
 				justify-content-center;
+				text-align: center;
 			}
 			
 			.nav-bar {
 				display: block;
-				color: white;
+				color: black;
 				text-align: right;
 				max-width-0.75;
 				padding: 0px 10px;
@@ -36,25 +37,27 @@
 				justify-content-center;
 				text-align-right;
 				padding: 25px 25px;
-				background-color: black;
-				color: white;
+				background-color: #e6e7f2;
+				color: black;
 			}
 			
 			.nav-bar a:hover {
 				background-color: #ddd;
 				color: black;
 			}
+			
+			{% block style %}{% endblock %}
 		</style>
 	</head>
 	<body>
 		<main>
-			<div class="container p-3 row nav-bar text-align-right">
+			<div class="container p-3 row nav-bar">
 				<a href="#">Download App</a>
 				<a href="#">Signup</a>
 				<a href="#">Log in</a>
 				<a href="#">Contact</a>
 			</div>
-			<div class="container justify-content-center text-center">
+			<div class="container">
 				<br/>
 				<br/>
 				<br/>
@@ -69,6 +72,13 @@
 				<br/>
 				<br/>
 				<br/>				
+			</div>
+			<div class="container">
+				<hr/>
+			</div>
+			{% block content %}BackApp{% endblock %}
+			<div class="container">
+				<hr/>
 			</div>
 		</main>
 	</body>
