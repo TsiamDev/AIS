@@ -1,0 +1,46 @@
+<!-- templates/home.html-->
+{% extends 'base.html' %}
+
+{% block style %}
+	.btn {
+		background-color: #939496;
+	}
+	
+	.btn:hover {
+		background-color: black;
+	}
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+	<form method="post">
+		{% csrf_token %}
+		{{ form.non_field_errors }}
+
+		<div class="row p-3">
+			<div class="col-12">
+				<label for="{{ form.username.id_for_label }}">Username:</label>
+				{{ form.username }}
+				{{ form.username.errors }}
+			</div>
+		</div>
+
+		<div class="row p-3">
+			<div class="col-12">
+				<label for="{{ form.password.id_for_label }}">Password:</label>
+				{{ form.password }}
+				{{ form.password.errors }}
+			</div>
+		</div>
+		
+		<div class="p-5">
+			<!-- TODO redirect to forgot password-->
+			<button type="submit" name="login-btn" class="btn btn-primary btn-lg">Forgot Password</button>
+			<button type="submit" name="login-btn" class="btn btn-primary btn-lg">Login</button>
+		</div>
+		
+	</form>
+</div>
+{% endblock %}
+
