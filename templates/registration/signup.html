@@ -1,0 +1,28 @@
+<!-- templates/home.html-->
+{% extends 'base.html' %}
+
+{% block style %}
+	.btn {
+		background-color: #939496;
+	}
+	
+	.btn:hover {
+		background-color: black;
+	}
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+	<form method="post">
+		{% csrf_token %}
+		{{ form.non_field_errors }}
+		{{form.as_p}}
+		<div class="p-5">
+			<!-- TODO redirect to login-->
+			<button type="submit" name="signup-btn" class="btn btn-primary btn-lg">Signup</button>
+		</div>		
+	</form>
+</div>
+{% endblock %}
+
