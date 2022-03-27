@@ -53,7 +53,7 @@
 		<main>
 			<div class="container p-3 row nav-bar">
 				<a href="{% url 'home' %}">Home</a>
-				<a href="#">Download App</a>
+				<a href="{% url 'download' %}">Download App</a>
 				<a href="{% url 'signup' %}">Signup</a>
 				<a href="{% url 'login' %}">Log in</a>
 				<a href="#">Contact</a>
@@ -77,7 +77,19 @@
 			<div class="container">
 				<hr/>
 			</div>
-			{% block content %}BackApp{% endblock %}
+			{% if user.is_authenticated %}
+				<div class="container">
+					Hi {{ user.username }}!
+					<p><a href="{% url 'logout' %}">Log Out</a></p>
+				</div>
+				{% block content %}
+				
+				{% endblock %}
+			{% else %}
+				{% block content_signed_out %}
+				
+				{% endblock %}
+			{% endif %}
 			<div class="container">
 				<hr/>
 			</div>

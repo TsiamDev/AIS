@@ -1,0 +1,14 @@
+<!-- templates/home.html-->
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+	<div class="container">
+		<p>Your Download will start soon...</p>
+	</div>
+{% else %}
+	<div class="container">
+		<p>You are not logged in</p>
+	</div>
+{% endif %}
+{% endblock %}
